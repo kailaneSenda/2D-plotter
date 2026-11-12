@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "author": "Erasmus Project",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0, "left": 0, "attrs": {} },
+    
+    { "type": "wokwi-a4988", "id": "driverX", "top": -150, "left": -250, "attrs": {} },
+    { "type": "wokwi-stepper-motor", "id": "motorX", "top": -250, "left": -250, "attrs": {} },
+    
+    { "type": "wokwi-a4988", "id": "driverY", "top": 150, "left": -250, "attrs": {} },
+    { "type": "wokwi-stepper-motor", "id": "motorY", "top": 250, "left": -250, "attrs": {} },
+    
+    { "type": "wokwi-servo", "id": "servo", "top": 150, "left": 250, "attrs": {} },
+    
+    { "type": "wokwi-pushbutton", "id": "endstopX", "top": -100, "left": 200, "attrs": { "label": "Endstop X" } },
+    { "type": "wokwi-pushbutton", "id": "endstopY", "top": 0, "left": 200, "attrs": { "label": "Endstop Y" } }
+  ],
+  "connections": [
+    [ "uno:5V", "driverX:VDD", "red", [] ],
+    [ "uno:5V", "driverY:VDD", "red", [] ],
+    [ "uno:5V", "uno:VIN", "red", [] ],
+    [ "uno:5V", "driverX:MS1", "red", [] ],
+    [ "uno:5V", "driverX:MS2", "red", [] ],
+    [ "uno:5V", "driverX:MS3", "red", [] ],
+    [ "uno:5V", "driverY:MS1", "red", [] ],
+    [ "uno:5V", "driverY:MS2", "red", [] ],
+    [ "uno:5V", "driverY:MS3", "red", [] ],
+
+    [ "uno:GND.1", "driverX:GND", "black", [] ],
+    [ "uno:GND.1", "driverY:GND", "black", [] ],
+    [ "uno:GND.1", "servo:GND", "black", [] ],
+    [ "uno:GND.1", "endstopX:2.l", "black", [] ],
+    [ "uno:GND.1", "endstopY:2.l", "black", [] ],
+
+    [ "uno:2", "driverX:STEP", "green", [] ],
+    [ "uno:3", "driverX:DIR", "green", [] ],
+    [ "uno:4", "driverX:EN", "green", [] ],
+    [ "uno:5", "driverY:STEP", "green", [] ],
+    [ "uno:6", "driverY:DIR", "green", [] ],
+    [ "uno:7", "driverY:EN", "green", [] ],
+
+    [ "uno:9", "servo:PWM", "orange", [] ],
+    [ "uno:10", "endstopX:1.l", "blue", [] ],
+    [ "uno:11", "endstopY:1.l", "blue", [] ],
+
+    [ "driverX:1A", "motorX:A+", "purple", [] ],
+    [ "driverX:1B", "motorX:A-", "purple", [] ],
+    [ "driverX:2A", "motorX:B+", "purple", [] ],
+    [ "driverX:2B", "motorX:B-", "purple", [] ],
+    
+    [ "driverY:1A", "motorY:A+", "orange", [] ],
+    [ "driverY:1B", "motorY:A-", "orange", [] ],
+    [ "driverY:2A", "motorY:B+", "orange", [] ],
+    [ "driverY:2B", "motorY:B-", "orange", [] ]
+  ]
+}
+
